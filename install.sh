@@ -109,12 +109,12 @@ error_detect_depends(){
 # Pre-installation settings
 pre_install_docker_compose(){
     # Set ssrpanel_url
-    echo "Please ssrpanel_url"
+    echo "输入你的sspanel"
     read -p "(There is no default value please make sure you input the right thing):" ssrpanel_url
     [ -z "${ssrpanel_url}" ]
     echo
     echo "---------------------------"
-    echo "ssrpanel_url = ${ssrpanel_url}"
+    echo "面板地址 = ${ssrpanel_url}"
     echo "---------------------------"
     echo
     # Set ssrpanel key
@@ -123,7 +123,7 @@ pre_install_docker_compose(){
     [ -z "${ssrpanel_key}" ]
     echo
     echo "---------------------------"
-    echo "ssrpanel_key = ${ssrpanel_key}"
+    echo "对接秘钥 = ${ssrpanel_key}"
     echo "---------------------------"
     echo
 
@@ -232,7 +232,7 @@ config_docker(){
     echo "install curl"
     install_dependencies
     echo "Writing docker-compose.yml"
-    curl -L https://raw.githubusercontent.com/haig233/v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/V2ray/docker-compose.yml > docker-compose.yml
+    curl -L https://raw.githubusercontent.com/qiumocanxue/v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/V2ray/docker-compose.yml > docker-compose.yml
     sed -i "s|node_id:.*|node_id: ${ssrpanel_node_id}|"  ./docker-compose.yml
     sed -i "s|sspanel_url:.*|sspanel_url: '${ssrpanel_url}'|"  ./docker-compose.yml
     sed -i "s|key:.*|key: '${ssrpanel_key}'|"  ./docker-compose.yml
@@ -249,9 +249,9 @@ config_caddy_docker(){
     cd ${cur_dir}
     echo "install curl"
     install_dependencies
-    curl -L https://raw.githubusercontent.com/haig233/v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/Caddyfile >  Caddyfile
+    curl -L https://raw.githubusercontent.com/qiumocanxue/v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/Caddyfile >  Caddyfile
     echo "Writing docker-compose.yml"
-    curl -L https://raw.githubusercontent.com/haig233/v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/docker-compose.yml > docker-compose.yml
+    curl -L https://raw.githubusercontent.com/qiumocanxue/v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/docker-compose.yml > docker-compose.yml
     sed -i "s|node_id:.*|node_id: ${ssrpanel_node_id}|"  ./docker-compose.yml
     sed -i "s|sspanel_url:.*|sspanel_url: '${ssrpanel_url}'|"  ./docker-compose.yml
     sed -i "s|key:.*|key: '${ssrpanel_key}'|"  ./docker-compose.yml
@@ -295,9 +295,9 @@ config_caddy_docker_cloudflare(){
     echo "install curl first "
     install_dependencies
     echo "Starting Writing Caddy file and docker-compose.yml"
-    curl -L https://raw.githubusercontent.com/haig233/v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/Caddyfile >Caddyfile
+    curl -L https://raw.githubusercontent.com/qiumocanxue/v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/Caddyfile >Caddyfile
     epcho "Writing docker-compose.yml"
-    curl -L https://raw.githubusercontent.com/haig233/v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/docker-compose.yml >docker-compose.yml
+    curl -L https://raw.githubusercontent.com/qiumocanxue/v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/docker-compose.yml >docker-compose.yml
     sed -i "s|node_id:.*|node_id: ${ssrpanel_node_id}|"  ./docker-compose.yml
     sed -i "s|sspanel_url:.*|sspanel_url: '${ssrpanel_url}'|"  ./docker-compose.yml
     sed -i "s|key:.*|key: '${ssrpanel_key}'|"  ./docker-compose.yml
