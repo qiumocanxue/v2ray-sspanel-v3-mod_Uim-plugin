@@ -109,12 +109,12 @@ error_detect_depends(){
 # Pre-installation settings
 pre_install_docker_compose(){
     # Set ssrpanel_url
-    echo "输入你的sspanel"
+    echo "Please ssrpanel_url"
     read -p "(There is no default value please make sure you input the right thing):" ssrpanel_url
     [ -z "${ssrpanel_url}" ]
     echo
     echo "---------------------------"
-    echo "面板地址 = ${ssrpanel_url}"
+    echo "ssrpanel_url = ${ssrpanel_url}"
     echo "---------------------------"
     echo
     # Set ssrpanel key
@@ -123,7 +123,7 @@ pre_install_docker_compose(){
     [ -z "${ssrpanel_key}" ]
     echo
     echo "---------------------------"
-    echo "对接秘钥 = ${ssrpanel_key}"
+    echo "ssrpanel_key = ${ssrpanel_key}"
     echo "---------------------------"
     echo
 
